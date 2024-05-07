@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alfredlee/Downloads/assastment-2-login-main/assastment-2-login.csproj",
-      "projectName": "assastment-2-login",
-      "projectPath": "/Users/alfredlee/Downloads/assastment-2-login-main/assastment-2-login.csproj",
+      "projectUniqueName": "/Users/alfredlee/Downloads/assastment-2-login-main/assastment-3-login.csproj",
+      "projectName": "assastment-3-login",
+      "projectPath": "/Users/alfredlee/Downloads/assastment-2-login-main/assastment-3-login.csproj",
       "packagesPath": "/Users/alfredlee/.nuget/packages/",
       "outputPath": "/Users/alfredlee/Downloads/assastment-2-login-main/obj/",
       "projectStyle": "PackageReference",

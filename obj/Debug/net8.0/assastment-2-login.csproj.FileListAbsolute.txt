@@ -1,0 +1,14 @@
+/Users/alfredlee/Downloads/assastment-2-login-main/bin/Debug/net8.0/assastment-2-login
+/Users/alfredlee/Downloads/assastment-2-login-main/bin/Debug/net8.0/assastment-2-login.deps.json
+/Users/alfredlee/Downloads/assastment-2-login-main/bin/Debug/net8.0/assastment-2-login.runtimeconfig.json
+/Users/alfredlee/Downloads/assastment-2-login-main/bin/Debug/net8.0/assastment-2-login.dll
+/Users/alfredlee/Downloads/assastment-2-login-main/bin/Debug/net8.0/assastment-2-login.pdb
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.AssemblyInfoInputs.cache
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.AssemblyInfo.cs
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.csproj.CoreCompileInputs.cache
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.dll
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/refint/assastment-2-login.dll
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.pdb
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/assastment-2-login.genruntimeconfig.cache
+/Users/alfredlee/Downloads/assastment-2-login-main/obj/Debug/net8.0/ref/assastment-2-login.dll

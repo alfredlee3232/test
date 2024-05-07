@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "assastment-2-login/1.0.0": {
+        "runtime": {
+          "assastment-2-login.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "assastment-2-login/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

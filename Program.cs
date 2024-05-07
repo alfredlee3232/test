@@ -1,80 +1,137 @@
 ﻿using System;
 
-public class Bank
+namespace BankApplication
 {
-    private string _username = "Joe.Doe";
-    private string _password = "Password123";
-
-    public void StartBanking()
+    public class Bank
     {
-        int attempt = 0;
-        bool isAuthenticated = false;
+        private decimal balance;
 
-        while (attempt < 3 && !isAuthenticated)
+        public Bank()
         {
-            Console.WriteLine("Welcome to ABC Bank");
-            Console.WriteLine("1: Login");
-            Console.WriteLine("2: Signup");
-            Console.WriteLine("3: Quit");
-            Console.Write("Select Option: ");
-            
-            string option = Console.ReadLine();
-            
-            switch(option)
+            balance = 0;
+        }
+
+        // Method to deposit money into the bank account
+        public void Deposit()
+        {
+            decimal amount = PromptForAmount("Enter the amount to deposit or enter 0 to cancel: ");
+            if (amount > 0)
             {
-                case "1":
-                    isAuthenticated = Login();
-                    if(isAuthenticated)
-                    {
-                        // If authenticated, navigate to the main screen.
-                        NavigateToMainScreen();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid email or password");
-                        attempt++;
-                    }
-                    break;
-                case "2":
-                    // Signup method would go here
-                    break;
-                case "3":
-                    return; // Quit application
-                default:
-                    Console.WriteLine("Invalid option.");
-                    break;
+                balance += amount;
+                Console.WriteLine($"Successfully deposited ${amount:F2}. Your new balance is ${balance:F2}.");
+            }
+            else
+            {
+                Console.WriteLine("Deposit canceled.");
             }
         }
 
-        if (attempt == 3)
+        // Method to withdraw money from the bank account
+        public void Withdraw()
         {
-            Console.WriteLine("Maximum login attempts exceeded.");
+            decimal amount = PromptForAmount("Enter the amount to withdraw or enter 0 to cancel: ");
+            if (amount > 0)
+            {
+                if (amount <= balance)
+                {
+                    balance -= amount;
+                    Console.WriteLine($"Successfully withdrew ${amount:F2}. Your new balance is ${balance:F2}.");
+                }
+                else
+                {
+                    Console.WriteLine("Insufficient funds.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Withdrawal canceled.");
+            }
+        }
+
+        // Method to view the current bank balance
+        public void ViewBalance()
+        {
+            Console.WriteLine($"Current balance: ${balance:F2}");
+        }
+
+        // Method to prompt for an amount with error handling and cancellation option
+        private decimal PromptForAmount(string message)
+        {
+            int attemptCount = 0;
+            while (true)
+            {
+                Console.Write(message);
+                if (decimal.TryParse(Console.ReadLine(), out decimal amount))
+                {
+                    if (amount >= 0)
+                    {
+                        return amount;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a non-negative amount.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid numeric amount.");
+                }
+
+                attemptCount++;
+                if (attemptCount >= 3)  // Allow 3 attempts before offering an exit option
+                {
+                    Console.WriteLine("Multiple invalid inputs. Enter '0' to cancel or any key to try again.");
+                    if (Console.ReadLine() == "0")
+                    {
+                        return 0;  // Assume 0 as a cancellation signal
+                    }
+                    attemptCount = 0;  // Reset the attempt counter after a decision
+                }
+            }
         }
     }
 
-    private bool Login()
+    class Program
     {
-        Console.Write("Enter username: ");
-        string username = Console.ReadLine();
-        Console.Write("Enter your password: ");
-        string password = Console.ReadLine();
+        static void Main()
+        {
+            Bank myBank = new Bank();
+            bool continueRunning = true;
 
-        return username == _username && password == _password;
-    }
+            Console.WriteLine("Welcome to ABC Bank");
 
-    private void NavigateToMainScreen()
-    {
-        // Code to navigate to the main screen after login would go here
-        Console.WriteLine("Navigating to the main screen...");
-    }
-}
+            while (continueRunning)
+            {
+                Console.WriteLine("\nSelect an option:");
+                Console.WriteLine("1: View Balance");
+                Console.WriteLine("2: Deposit");
+                Console.WriteLine("3: Withdraw");
+                Console.WriteLine("4: Quit");
+                Console.Write("Enter your choice: ");
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Bank bank = new Bank();
-        bank.StartBanking();
+                string userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "1":
+                        myBank.ViewBalance();
+                        break;
+                    case "2":
+                        myBank.Deposit();
+                        break;
+                    case "3":
+                        myBank.Withdraw();
+                        break;
+                    case "4":
+                        Console.WriteLine("Thank you for using ABC Bank. Goodbye!");
+                        continueRunning = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please try again.");
+                        break;
+                }
+            }
+        }
     }
 }
 
